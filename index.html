@@ -3,42 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A movie image quiz game for educational purposes.">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <title>Movie Image Quiz</title>
+    <title>Movie Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div id="startScreen">
-            <h1 class="title">Movie Image Quiz</h1>
-            <p class="instructions">Guess the movie from the image! Choose your difficulty:</p>
-            <select id="difficulty">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-            <button id="startQuiz">Start Quiz</button>
-        </div>
-
-        <div id="quizBox" class="hidden">
-            <h2 class="title">Question <span id="questionNumber">1</span></h2>
-            <img id="quizImage" class="quiz-image" src="" alt="Movie Scene">
-            <div class="options" id="optionsContainer"></div>
-            <div class="hint-buttons">
-                <button id="hint1" class="hint hidden">Hint 1</button>
-                <button id="hint2" class="hint hidden">Hint 2</button>
-            </div>
-            <div id="hintDisplay" class="hint-display hidden"></div>
-            <button id="nextQuestion" class="hidden">Next Question</button>
-            <button id="restartQuiz" class="hidden">Restart Quiz</button>
-        </div>
-
-        <div id="endScreen" class="hidden">
-            <h2 class="title">Your Score: <span id="finalScore">0</span></h2>
-            <button id="restartFromStart">Restart</button>
-        </div>
+    <div id="startScreen" class="container">
+        <h1>Movie Quiz Game</h1>
+        <p>Select a difficulty level and press Start to begin!</p>
+        <select id="difficultySelector">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <button id="startQuizButton">Start Quiz</button>
     </div>
+
+    <div id="quizContainer" class="container" style="display: none;">
+        <h2 id="questionTitle">Guess the Movie</h2>
+        <img id="questionImage" src="" alt="Movie Scene" class="question-image">
+        <div class="options">
+            <button class="answer-option"></button>
+            <button class="answer-option"></button>
+            <button class="answer-option"></button>
+            <button class="answer-option"></button>
+        </div>
+        <div class="hints">
+            <button class="hint-button">Hint 1</button>
+            <button class="hint-button">Hint 2</button>
+        </div>
+        <div id="hintBox" class="hint-box" style="display: none;"></div>
+    </div>
+
+    <div id="endScreen" class="container" style="display: none;">
+        <h2>Quiz Complete!</h2>
+        <p id="scoreDisplay">Your score: 0</p>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
