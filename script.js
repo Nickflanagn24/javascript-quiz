@@ -12,7 +12,13 @@ let questions = [
         hints: ["Hint 1 for Q2", "Hint 2 for Q2"] 
     },
 ]; 
-let currentQuestionIndex = 0; 
-let score = 0; 
-let selectedDifficulty = 'easy'; 
-let usedQuestions = new Set();
+
+let selectedQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let difficulty = "";
+let hintsAvailable = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("startQuizButton").addEventListener("click", startQuiz);
+});
